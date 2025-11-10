@@ -184,20 +184,41 @@ class test {
         return -1;
     }
 
+    summary() {
+        if (this.position == undefined) {return -1};
+
+        let negValue = 0;
+        let posValue = 0;
+
+        for (let i = 0; i < this.position; i++) {
+            if (this.arr[i] < 0) {
+                negValue += 1;
+            }
+            else if (this.arr[i] > 0) {
+                posValue += 1;
+            }
+            else { // The current element in the array is zero
+                continue; 
+            }
+        }
+        return {positiveValue: posValue, negativeValue: negValue};
+    }
+
 
 }
 
 
 let a = new test(7);
 
-a.push(29);
-a.push(13);
+a.push(-29);
+a.push(-13);
 a.push(7);
 a.push(64);
 a.push(1);
 
+
 console.log(a);
 
-console.log(a.findFirst(7));
+console.log(a.summary());
 
 console.log(a);
