@@ -12,6 +12,17 @@ class test {
         this.position++;
         return this.arr;
     }
+
+    // Klar
+    length() {
+        if (this.arr[0] == undefined) {return { min:undefined, pos: -1 }}
+        let i = 0;
+        while (this.arr[i] != undefined) {
+            i++;
+        }
+        return i;
+    }
+
     // Klar
     pop() {
         if (this.arr[0] == undefined) { return -1; }
@@ -24,15 +35,20 @@ class test {
         this.arr = array;
         return this.arr;
     }
+
     // Klar
-    length() {
-        if (this.arr[0] == undefined) {return { min:undefined, pos: -1 }}
-        let i = 0;
-        while (this.arr[i] != undefined) {
-            i++;
+    at(pos) {
+        if (this.position <= 0) {return -1;}
+
+        if (this.arr[pos - 1] != undefined) {
+            return this.arr[pos - 1];
         }
-        return i;
+        else {
+            console.log("Error, positionen som angetts är ej giltig");
+            return;
+        }
     }
+    
 
     // Klar
     min() {
@@ -88,18 +104,7 @@ class test {
         return this.arr;
     }
 
-    // Klar
-    at(pos) {
-        if (this.position <= 0) {return -1;}
-
-        if (this.arr[pos - 1] != undefined) {
-            return this.arr[pos - 1];
-        }
-        else {
-            console.log("Error, positionen som angetts är ej giltig");
-            return;
-        }
-    }
+    
 
     // Klar
     sum() {
@@ -126,57 +131,8 @@ class test {
         return array;
     }
 
-    // Klar
-    sort() {
-        if (this.position <= 0) {return -1;}
-        let a;
-        let iterationer = 0;
-        for (let i = 0; i < this.position; i++) {
-            for (let j = 0; j < this.position; j++) {
-                if (this.arr[j+1] < this.arr[j]) {
-                    a = this.arr[j+1];
-                    this.arr[j+1] = this.arr[j];
-                    this.arr[j] = a;
-                    iterationer++;
-                }
-            }
-        }
-        return {sortedArray: this.arr, iterations: iterationer};
-    }
-
-    // Klar
-    between(startPos, endPos) {
-        if (this.position <= 0 || startPos == undefined || endPos == undefined) {return;}
-        let array = [];
-        let i = 0;
-        while (this.arr[startPos] != this.arr[endPos + 1]) {
-            array[i] = this.arr[startPos];
-            startPos++;
-            i++;
-            
-        }
-        return array;
-    }
-
-    // Klar
-    cut(from, to) {
-        if (this.position <= 0 || from == undefined || to == undefined) {return -1;}
-        let s = 0;
-        let p = 0;
-        let array = [];
+    show() {
         
-        for (let i = 0; i < this.position; i++) {
-            if (from <= i && i <= to) {
-                p++;
-                continue;
-            }
-
-            array[s] = this.arr[i];
-            s++;
-        }
-        this.position -= p;
-        this.arr = array;
-        return this.arr;
     }
 
     // Klar
@@ -191,20 +147,8 @@ class test {
         return this.arr;
     }
 
-    // Klar
-    merge(array) {
-        if (array[0] == undefined) {return -1;}
-        let i = 0;
-        while (array[i] != undefined) {
-            this.arr[this.position] = array[i];
-            this.position++;
-            this.size++;
-            i++;
-        }
-        return this.arr;
-    }
 
-    // Klar
+    
     replace(index, value) {
         if (this.position <= 0 || index == undefined || value === undefined) {return -1};
 
