@@ -185,7 +185,7 @@ class test {
     }
 
     summary() {
-        if (this.position == undefined) {return -1};
+        if (this.position <= 0) {return -1};
 
         let negValue = 0;
         let posValue = 0;
@@ -204,21 +204,39 @@ class test {
         return {positiveValue: posValue, negativeValue: negValue};
     }
 
+    findAll(val) {
+        if (this.position <= 0 || val == undefined) {return -1};
+
+        let x = 0;
+        let array = [];
+
+        for (let i = 0; i < this.position; i++) {
+            if (this.arr[i] == val) {
+                array[x] = i;
+                x += 1;
+            }
+        }
+        return array;
+    }
+
+    deleteFirst() {
+
+    }
+
 
 }
 
 
-let a = new test(7);
+let a = new test(20);
 
-a.push(-29);
-a.push(-13);
-a.push(7);
 a.push(64);
-a.push(1);
-
+a.push(64);
+a.push(64);
+a.push(64);
+a.push(64);
 
 console.log(a);
 
-console.log(a.summary());
+console.log(a.findAll(64));
 
 console.log(a);
