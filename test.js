@@ -204,12 +204,25 @@ class test {
         return this.arr;
     }
 
+    // Klar
     replace(index, value) {
         if (this.position <= 0 || index == undefined || value === undefined) {return -1};
 
         this.arr[index] = value;
         return this.arr;
     }
+
+    swap(indexA, indexB) {
+        if (this.position <= 0 || indexA == undefined || indexB == undefined) { return -1};
+
+        let a = this.arr[indexA];
+
+        this.arr[indexA] = this.arr[indexB];
+        this.arr[indexB] = a;
+
+        return this.arr;
+    }
+
 
 }
 
@@ -222,5 +235,8 @@ a.push(7);
 a.push(64);
 a.push(1);
 
+console.log(a);
 
-console.log(a.replace(1, 10));
+console.log(a.swap(1, 3));
+
+console.log(a);
