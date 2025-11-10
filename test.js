@@ -249,18 +249,3 @@ class test {
 
 
 }
-
-
-let a = new test(20);
-
-a.push(10);
-a.push(3);
-a.push(20);
-a.push(5);
-
-
-console.log(a);
-
-console.log(a.ickySort());
-
-console.log(a);
