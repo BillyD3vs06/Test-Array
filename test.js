@@ -1,7 +1,7 @@
 class test {
     constructor(size) {
         this.arr = new Array();
-        this.size = size;
+        this.maximum = size;
         this.position = 0;
     }
     // Klar
@@ -204,4 +204,23 @@ class test {
         return this.arr;
     }
 
+    replace(index, value) {
+        if (this.position <= 0 || index == undefined || value === undefined) {return -1};
+
+        this.arr[index] = value;
+        return this.arr;
+    }
+
 }
+
+
+let a = new test(7);
+
+a.push(29);
+a.push(13);
+a.push(7);
+a.push(64);
+a.push(1);
+
+
+console.log(a.replace(1, 10));
