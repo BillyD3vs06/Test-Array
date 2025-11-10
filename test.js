@@ -131,8 +131,14 @@ class test {
         return array;
     }
 
+    //Klar
     show() {
-        
+        const x = {
+            elements: this.position,
+            size: this.maximum,
+            array: this.arr
+        };
+        return x;
     }
 
     // Klar
@@ -167,6 +173,17 @@ class test {
         return this.arr;
     }
 
+    findFirst(val) {
+        if (val == undefined) {return -1;}
+
+        for (let i = 0; i < this.position; i++) {
+            if (this.arr[i] == val) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 
 }
 
@@ -181,6 +198,6 @@ a.push(1);
 
 console.log(a);
 
-console.log(a.swap(1, 3));
+console.log(a.findFirst(7));
 
 console.log(a);
