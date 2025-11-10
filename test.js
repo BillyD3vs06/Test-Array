@@ -219,9 +219,21 @@ class test {
         return array;
     }
 
-    deleteFirst() {
+    deleteFirst(num) {
+        if (this.position <= 0 || num == undefined || num <= 0 || this.position < num) {return -1};
 
+        let element = this.position - num;
+        let array = [];
+
+        for (let i = 0; i < element; i++) {
+            array[i] = this.arr[num + i];
+        }
+        this.position -= num;
+        this.arr = array;
+        return this.arr;
     }
+
+    
 
 
 }
@@ -235,8 +247,26 @@ a.push(64);
 a.push(64);
 a.push(64);
 
+a.push(64);
+a.push(64);
+a.push(64);
+a.push(64);
+a.push(64);
+
+a.push(64);
+a.push(64);
+a.push(64);
+a.push(64);
+a.push(64);
+
+a.push(64);
+a.push(64);
+a.push(64);
+a.push(64);
+a.push(64);
+
 console.log(a);
 
-console.log(a.findAll(64));
+console.log(a.deleteFirst(3));
 
 console.log(a);
