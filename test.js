@@ -233,7 +233,19 @@ class test {
         return this.arr;
     }
 
-    
+    ickySort() {
+        if (this.position <= 0) { return -1};
+        let i = 1;
+        let a = this.arr[0];
+
+        for (i < this.position; i++;) {
+            if (this.arr[i] < this.arr[0]) {
+                this.arr[i] = a;
+                this.arr[0] = this.arr[i];
+            }
+        }
+        return this.arr;
+    }
 
 
 }
@@ -241,32 +253,14 @@ class test {
 
 let a = new test(20);
 
-a.push(64);
-a.push(64);
-a.push(64);
-a.push(64);
-a.push(64);
+a.push(10);
+a.push(3);
+a.push(20);
+a.push(5);
 
-a.push(64);
-a.push(64);
-a.push(64);
-a.push(64);
-a.push(64);
-
-a.push(64);
-a.push(64);
-a.push(64);
-a.push(64);
-a.push(64);
-
-a.push(64);
-a.push(64);
-a.push(64);
-a.push(64);
-a.push(64);
 
 console.log(a);
 
-console.log(a.deleteFirst(3));
+console.log(a.ickySort());
 
 console.log(a);
